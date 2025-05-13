@@ -20,7 +20,7 @@ const register = async (req, res) => {
       maxAge: 90 * 24 * 60 * 60 * 1000, // 90 days in milliseconds
     });
 
-    res.status(201).json({ token, user });
+    res.status(201).json({ token, userId: user._id });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -52,7 +52,7 @@ const login = async (req, res) => {
       maxAge: 90 * 24 * 60 * 60 * 1000, // 90 days in milliseconds
     });
 
-    res.status(200).json({ token,user});
+    res.status(200).json({ token,userId:user._id });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
